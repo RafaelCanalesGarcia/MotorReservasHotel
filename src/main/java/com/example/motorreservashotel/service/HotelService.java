@@ -2,6 +2,7 @@ package com.example.motorreservashotel.service;
 
 
 import com.example.motorreservashotel.entity.Hotel;
+import com.example.motorreservashotel.exception.HotelNotFoundException;
 import com.example.motorreservashotel.repository.HotelRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,16 +18,16 @@ public class HotelService {
     }
 
 
-    public void addHotel(Hotel hotel){
-        hr.save(hotel);
+    public Hotel addHotel(Hotel hotel){
+        return hr.save(hotel);
     }
 
     public List<Hotel> getHotels(){
         return hr.findAll();
     }
 
-    public Optional<Hotel> findHotelById(Long id){
-        return hr.findById(id);
+    public Hotel findHotelById(Long id){
+        return hr.findById(id).orElseThrow(() -> new HotelNotFoundException("Hotel not found."));
     }
 
 

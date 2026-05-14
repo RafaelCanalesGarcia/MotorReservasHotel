@@ -2,9 +2,11 @@ package com.example.motorreservashotel.controller;
 
 import com.example.motorreservashotel.entity.Hotel;
 import com.example.motorreservashotel.service.HotelService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequestMapping("/hotels")
 
@@ -23,8 +25,13 @@ public class HotelController {
     }
 
     @PostMapping
-    public void addHotel(@RequestBody Hotel hotel){
-        hs.addHotel(hotel);
+    public Hotel addHotel(@Valid @RequestBody Hotel hotel){
+       return hs.addHotel(hotel);
 
+    }
+    @GetMapping("/{id}")
+    public Hotel getHotelById(@PathVariable Long id){
+
+        return hs.findHotelById(id);
     }
 }
