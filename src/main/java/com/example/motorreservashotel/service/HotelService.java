@@ -7,7 +7,6 @@ import com.example.motorreservashotel.repository.HotelRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class HotelService {
@@ -30,5 +29,13 @@ public class HotelService {
         return hr.findById(id).orElseThrow(() -> new HotelNotFoundException("Hotel not found."));
     }
 
+    public List<Hotel> findHotelsByCountry(String country){
+        return hr.findByCountryIgnoreCase(country);
+    }
+
+    public void deleteHotel(Long id){
+        Hotel hotel = findHotelById(id);
+        hr.delete(hotel);
+    }
 
 }
