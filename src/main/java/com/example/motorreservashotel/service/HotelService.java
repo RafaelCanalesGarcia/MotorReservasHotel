@@ -33,6 +33,14 @@ public class HotelService {
         return hr.findByCountryIgnoreCase(country);
     }
 
+    public List<Hotel> findHotelsByCity(String city){
+        return hr.findByCityIgnoreCase(city);
+    }
+
+    public List<Hotel> findHotelsByStars(Integer stars){
+        return hr.findByStars(stars);
+    }
+
     public void deleteHotel(Long id){
         Hotel hotel = findHotelById(id);
         hr.delete(hotel);

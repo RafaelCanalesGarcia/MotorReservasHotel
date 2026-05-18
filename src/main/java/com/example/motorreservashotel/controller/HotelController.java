@@ -69,6 +69,18 @@ public class HotelController {
         return hotels.stream().map(this::toHotelResponse).toList();
     }
 
+    @GetMapping("/city/{city}")
+    public List<HotelResponseDTO> getHotelsByCity(@PathVariable String city){
+        List<Hotel> hotels = hs.findHotelsByCity(city);
+        return hotels.stream().map(this::toHotelResponse).toList();
+    }
+
+    @GetMapping("/stars/{stars}")
+    public List<HotelResponseDTO> getHotelsByStars(@PathVariable Integer stars){
+        List<Hotel> hotels = hs.findHotelsByStars(stars);
+        return hotels.stream().map(this::toHotelResponse).toList();
+    }
+
     @PutMapping("/{id}")
     public HotelResponseDTO putHotel(@Valid @RequestBody HotelRequestDTO request, @PathVariable Long id){
         Hotel hotel = hs.findHotelById(id);
