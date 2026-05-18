@@ -25,7 +25,7 @@ public class RoomRequestDTO {
     private final RoomType type;
 
     @NotNull
-    private final Long hotel_id;
+    private final Long hotelId;
 
 
 }

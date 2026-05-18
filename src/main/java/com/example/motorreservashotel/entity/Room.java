@@ -32,5 +32,14 @@ public class Room {
     @JoinColumn(name = "hotel_id")
     private Hotel hotel;
 
+    public Room(Integer number,Integer capacity,RoomState state, RoomType type,Hotel hotel) {
+        this.hotel = hotel;
+        this.type = type;
+        this.state = state;
+        this.capacity = capacity;
+        this.number = number;
+    }
 
+    public Room() {
+    }
 }
