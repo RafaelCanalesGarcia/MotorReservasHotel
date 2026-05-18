@@ -43,3 +43,13 @@ public class Room {
     public Room() {
     }
 }
+/*
+Host    ep-cool-cherry-al0gnobm.c-3.eu-central-1.aws.neon.tech
+Database    neondb
+Role    neondb_owner
+Password    ************
+Pooler host ep-cool-cherry-al0gnobm-pooler.c-3.eu-central-1.aws.neon.tech
+
+postgresql://neondb_owner:npg_TzhE07SRslZG@ep-cool-cherry-al0gnobm.c-3.eu-central-1.aws.neon.tech/neondb?sslmode=require
+
+ */

@@ -59,7 +59,6 @@ public class RoomController {
         return toRoomResponse(rs.findRoomById(id));
     }
 
-
     @PostMapping
     public RoomResponseDTO addRoom(@Valid @RequestBody RoomRequestDTO request){
         return toRoomResponse(rs.addRoom(toEntityRoom(request)));
